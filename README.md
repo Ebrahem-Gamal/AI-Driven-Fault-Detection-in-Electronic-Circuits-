@@ -8,9 +8,11 @@ The circuit is based on the ADTL082 Op-Amp. We simulated a specific fault by cha
 
 ### Circuit Schematics
 * **Normal State:**
-![Normal Circuit](normal_circuit.png)
+![Normal Circuit]
+(normal_circuit.png)
 * **Faulty State (C9 Change):**
-![Faulty Circuit](faulty_circuit.png)
+![Faulty Circuit]
+(faulty_circuit.png)
 ## 📊 Results
 The models were trained on a dataset of 510 samples, covering various fault scenarios:
 - **ANN Accuracy:** 99.34%
