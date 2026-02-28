@@ -9,7 +9,7 @@ The circuit is an active Biquad Filter designed using **ADTL082** Op-Amps. We pe
 ### Circuit Schematics
 To analyze the system, we compared the nominal state with a faulty state:
 
-| **Normal State (Healthy)** | **Faulty State (C9 Deviation)** |
+| **Normal State ** | **Faulty State (C9 Deviation)** |
 | :---: | :---: |
 | ![Normal Circuit](normal_circuit.png) | ![Faulty Circuit](faulty_circuit.png) |
 | *Nominal Values (C_9 = 1pF)* | *Faulty Value (C_9 = 0.5nF)* |
