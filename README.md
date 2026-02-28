@@ -1,58 +1,58 @@
-# 🛡️ AI-Driven Fault Detection in Biquad Filter Circuits ⚡
+#  AI-Driven Fault Detection in Biquad Filter Circuits 
 
-## 🎥 Results Visualization
+##  Results & Model Output
 ![Model Performance & Output](output.png)
-*Comparison between simulated circuit output and AI model predictions, showing high precision in fault classification.*
+*Visual representation of the AI model's accuracy and the circuit's signal response during fault detection.*
 
 ---
 
-## 📝 Project Overview
-This project leverages **Artificial Neural Networks (ANN)** and **Support Vector Machines (SVM)** to intelligently detect and classify component faults in electronic circuits. The study focuses on an active **Tow-Thomas Biquad Filter**, analyzing how variations in component values (like $C_9$) affect the circuit's behavioral signatures.
+##  Project Overview
+This project implements an intelligent diagnostic system using **Artificial Neural Networks (ANN)** and **Support Vector Machines (SVM)** to detect component failures in electronic circuits. The core of the study is a **Tow-Thomas Biquad Filter**, where we analyze how deviations in passive components (like $C_9$) alter the system's transfer function.
 
 ---
 
-## 🔌 Circuit Design & Technical Description
-The Biquad filter is a second-order active topology known for its stability. It employs three **ADTL082** Operational Amplifiers:
+##  Circuit Design & Technical Description
+The design is based on a second-order active Biquad filter topology, which is highly valued in analog signal processing for its low sensitivity to component tolerances. It utilizes three **ADTL082** Op-Amps:
 
-1.  **Integrator with Loss ($U_1$):** Acts as a summer and a lossy integrator using $R_{31}$ and $C_{10}$.
-2.  **Pure Integrator ($U_2$):** Provides the second integration stage using $C_9$.
-3.  **Inverting Amplifier ($U_3$):** Provides the necessary $180^\circ$ phase shift for the feedback loop.
+1.  **Integrator with Loss ($U_1$):** Functions as a summing stage and lossy integrator ($R_{31}$, $C_{10}$).
+2.  **Pure Integrator ($U_2$):** Executing the second integration step ($C_9$).
+3.  **Inverting Amplifier ($U_3$):** Ensures the $180^\circ$ phase shift required for stable negative feedback.
 
-### 📐 Mathematical Model
-The transfer function $H(s)$ of this system is defined by:
+###  Mathematical Model
+The system behavior is governed by the following Transfer Function $H(s)$:
 
 $$H(s) = \frac{V_{out}(s)}{V_{in}(s)} = -\frac{\frac{1}{R_{33} C_{10}} s}{s^2 + \frac{1}{R_{31} C_{10}} s + \frac{1}{R_{32} R_{29} C_{10} C_9}}$$
 
 ---
 
-## 🧠 Machine Learning Analysis
-We compared the nominal state with specific faulty states to train our models on **510 samples** covering **51 different fault classes**.
+##  Machine Learning Performance
+The models were trained and validated on a synthetic dataset of **510 samples**, categorized into **51 distinct fault classes** (including nominal and degraded states).
 
-### 📊 Performance Summary
-| Model | Test Accuracy |
-| :--- | :---: |
-| **Artificial Neural Network (ANN)** | **99.34%** ✅ |
-| **Support Vector Machine (SVM)** | **91.50%** |
+###  Comparison Table
+| Machine Learning Model | Test Accuracy | Status |
+| :--- | :---: | :---: |
+| **Artificial Neural Network (ANN)** | **99.34%** | ✅ Superior |
+| **Support Vector Machine (SVM)** | **91.50%** | Standard |
 
-### 🖼️ Simulation Comparison
+###  Simulation Context
 | **Normal State (Healthy)** | **Faulty State ($C_9$ Deviation)** |
 | :---: | :---: |
 | ![Normal Circuit](normal_circuit.png) | ![Faulty Circuit](faulty_circuit.png) |
 
 ---
 
-## 📂 Project Structure
-* `faulty_detection_model.py`: Core Python script for dataset generation and ML training.
-* `Biquad high-pass filter.asc`: **LTspice** schematic file for circuit simulation.
-* `output.png`: Visual results of the filter's output and AI accuracy.
-* `biquad_fault_dataset.csv`: The generated synthetic dataset used for training.
-* `model_comparison.csv`: Exported accuracy results comparing ANN vs SVM.
-* `normal_circuit.png` & `faulty_circuit.png`: Snapshots of the circuit states.
-* `requirements.txt`: Python dependencies (`pandas`, `scikit-learn`, `numpy`).
+##  Project Structure
+* `Biquad high-pass filter.asc`: **LTspice** schematic for circuit simulation.
+* `faulty_detection_model.py`: Python firmware for ANN/SVM training and evaluation.
+* `output.png`: High-resolution output graph of the model's performance.
+* `biquad_fault_dataset.csv`: The raw feature dataset (Amplitude, Phase, Frequency).
+* `model_comparison.csv`: Statistical logs of the training results.
+* `requirements.txt`: Necessary Python packages (`numpy`, `pandas`, `scikit-learn`).
 
 ---
 
-## 🚀 How to Run
-1.  **Simulation:** Open `Biquad high-pass filter.asc` in **LTspice** to view or modify the circuit.
-2.  **AI Model:** * Install dependencies: `pip install -r requirements.txt`.
-    * Run the training script: `python faulty_detection_model.py`.
+##  How to Run
+1.  **Hardware Simulation:** Open `Biquad high-pass filter.asc` in **LTspice XVII** to inspect the node voltages.
+2.  **AI Training:**
+    * Install libraries: `pip install -r requirements.txt`.
+    * Execute the script: `python faulty_detection_model.py`.
